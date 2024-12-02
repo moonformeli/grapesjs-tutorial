@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { type User } from '../types';
 
 interface UserProps {
@@ -5,6 +6,7 @@ interface UserProps {
 }
 
 export default function UserBlock({ user }: UserProps) {
+  const [count, setCount] = useState(0);
   const { avatar, first_name, last_name } = user;
 
   return (
@@ -17,6 +19,12 @@ export default function UserBlock({ user }: UserProps) {
       <p>
         {first_name} {last_name}
       </p>
+      <button
+        className='text-lg text-red-500'
+        onClick={() => setCount(count + 1)}
+      >
+        {count}
+      </button>
     </div>
   );
 }
